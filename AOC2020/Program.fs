@@ -14,9 +14,13 @@ type CliArgs =
             | Problem_Number _ -> "problem day (1-25) and number (1-2) to execute"
             | Input_File _ -> "path to input file"
 
+let inline solve< ^a when (^a): (static member Problem1: (string array -> unit)) and (^a): (static member Problem2: (string array -> unit))> = function
+    | Problem1 -> (^a: (static member Problem1: (string array -> unit)) ())
+    | Problem2 -> (^a: (static member Problem2: (string array -> unit)) ())
+
 let run = function
-    | 1 -> Day1.day1
-    | 2 -> Day2.day2
+    | 1 -> solve<Day1.Solver>
+    | 2 -> solve<Day2.Solver>
     | _ -> fun _ _ -> ()
 
 [<EntryPoint>]

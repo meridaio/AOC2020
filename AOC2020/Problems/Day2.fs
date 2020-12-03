@@ -42,12 +42,12 @@ let private checkPasswordByPolicy (policy: Password -> bool) (input: string arra
     |> Seq.length
   printfn "%i passwords are valid" validPasswords
 
-let private question1 (input: string array) =
+let private problem1 (input: string array) =
   checkPasswordByPolicy passwordPolicy1 input
 
-let private question2 (input: string array) =
+let private problem2 (input: string array) =
   checkPasswordByPolicy passwordPolicy2 input
 
-let day2 = function
-  | Problem1 -> question1
-  | Problem2 -> question2
+type Solver () =
+  static member Problem1 = problem1
+  static member Problem2 = problem2

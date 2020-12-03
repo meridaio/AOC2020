@@ -20,19 +20,19 @@ let rec private triples = function
     }
   | _ -> Seq.empty
 
-let private ``day 1 question 1`` (input:string array) =
+let private problem1 (input:string array) =
   let numbers = toIntList input
   let combinations = pairs numbers
   let x, y = combinations |> Seq.find (fun (x, y) -> x + y = 2020)
   printfn "Pair: %i, %i; Product: %i" x y (x * y)
 
 
-let private ``day 1 question 2`` (input: string array) =
+let private problem2 (input: string array) =
   let numbers = toIntList input
   let combinations = triples numbers
   let x, y, z = combinations |> Seq.find (fun (x, y, z) -> x + y + z = 2020)
   printfn "Triple: %i, %i, %i; Product: %i" x y z (x * y * z)
 
-let day1 = function
-  | Problem1 -> ``day 1 question 1``
-  | Problem2 -> ``day 1 question 2``
+type Solver () =
+  static member Problem1 = problem1
+  static member Problem2 = problem2
