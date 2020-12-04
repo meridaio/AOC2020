@@ -8,6 +8,7 @@
     <Compile Include="Problems/Day1.fs" />
     <Compile Include="Problems/Day2.fs" />
     <Compile Include="Problems/Day3.fs" />
+    <Compile Include="Problems/Day4.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
