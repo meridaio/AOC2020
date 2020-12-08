@@ -2,3 +2,4 @@
 **/obj
 .ionide
 .vs
+.fake
