@@ -11,10 +11,11 @@ let getCount joiner (input: string array) =
   | Success (result, _, _) -> result |> List.sumBy (List.map Set.ofList >> joiner >> Set.count)
   | Failure (error, _, _) -> failwith error
 
-let union = List.fold (Set.union) Set.empty
+let union = List.fold Set.union Set.empty
 
-let intersect (l: Set<char> list) =
-  List.fold (Set.intersect) (List.head l) (List.tail l)
+let intersect = function
+  | x::xs -> List.fold Set.intersect x xs
+  | [] -> Set.empty
 
 type Solver () =
   static member Problem1 = getCount union >> printfn "Sum of counts: %i"
