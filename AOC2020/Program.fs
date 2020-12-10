@@ -26,6 +26,7 @@ let run = function
     | 5 -> solve<Day5.Solver>
     | 6 -> solve<Day6.Solver>
     | 7 -> solve<Day7.Solver>
+    | 8 -> solve<Day8.Solver>
     | _ -> fun _ _ -> ()
 
 [<EntryPoint>]
