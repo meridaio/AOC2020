@@ -1,24 +1,9 @@
 module AOC2020.Day1
 
 open System
+open AOC2020.Input
 
 let private toIntList arr = arr |> List.ofArray |> List.map Int32.Parse
-
-let rec private pairs = function
-  | h :: t ->
-    seq {
-      for x in t do yield h, x
-      yield! pairs t
-    }
-  | _ -> Seq.empty
-
-let rec private triples = function
-  | h :: t ->
-    seq {
-      for y, z in pairs t do yield h, y, z
-      yield! triples t
-    }
-  | _ -> Seq.empty
 
 let private problem1 (input:string array) =
   let numbers = toIntList input
